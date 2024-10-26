@@ -1,0 +1,38 @@
+.app-content {
+    overflow: hidden;
+    height: 100%;
+}
+
+.panier-icon {
+  font-size: 2rem;
+}
+.button-style{
+  height: 3rem;
+  width: 3rem;
+}
+.cart-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.icon-container {
+  position: relative;
+  display: inline-block;
+}
+.p-toolbar-group-end p-button .p-badge {
+  margin-left: 0.5rem;
+  min-width: 1rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: red !important;
+  background-color: transparent;
+  border: 1px solid red;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

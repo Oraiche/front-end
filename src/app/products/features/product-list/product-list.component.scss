@@ -1,0 +1,40 @@
+:host {
+    display: block;
+    height: 100%;
+    overflow: auto;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 15px 10px 40px; /* Ajout de padding à gauche pour l'icône */
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.search-input:focus {
+  border-color: #007ad9;
+  box-shadow: 0 4px 8px rgba(0, 122, 217, 0.3);
+}
+
+.search-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}

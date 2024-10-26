@@ -1,0 +1,59 @@
+<h1 class="text-center">Liste des produits</h1>
+
+<p-button label="Créer produit" (onClick)="onCreate()" class="block text-center"/>
+<div class="search-container">
+  <span class="search-icon">
+    <i class="pi pi-search"></i>
+  </span>
+  <input
+    type="text"
+    placeholder="Rechercher un produit..."
+    [(ngModel)]="searchTerm"
+    (input)="onSearchChange()"
+    class="search-input"
+  />
+</div>
+
+<p-dataView #dv [value]="paginatedProducts">
+    <ng-template pTemplate="list" let-products>
+        @for (product of products; track product) {
+            <p-card class="block mb-2">
+                <span class="font-medium text-secondary text-sm">{{ product.category }}</span>
+                <div class="text-lg font-medium text-900 mt-2">{{ product.name }}</div>
+              <img [src]="'/assets/images/product.png'" alt="Product Image" style="width: 150px; height: auto;">
+              <div class="font-medium text-500 mt-2">{{ product.description }}</div>
+              <div class="font-medium text-500 mt-2">Prix: {{ product.price}}</div>
+              <div class="font-medium text-500 mt-2"> Stock: {{ product.inventoryStatus}}</div>
+              <div class="font-medium text-500 mt-2">Rating: {{ product.rating}}</div>
+
+
+                <ng-template pTemplate="footer">
+                    <div class="flex gap-3 mt-1">
+                        <p-button label="Modifier" severity="secondary" (onClick)="onUpdate(product)"/>
+                        <p-button label="Supprimer" severity="danger" (onClick)="onDelete(product)" />
+                        <p-button label="Ajouter au panier" severity="success" (onClick)="onAddToPanier(product)"/>
+                    </div>
+                </ng-template>
+            </p-card>
+        }
+    </ng-template>
+</p-dataView>
+<!-- Pagination -->
+<p-paginator
+  [rows]="itemsPerPage"
+  [totalRecords]="totalProducts"
+  [first]="currentPage * itemsPerPage"
+  (onPageChange)="onPageChange($event)"
+  [rowsPerPageOptions]="[5, 10, 20]"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+</p-paginator>
+
+<p-dialog [(visible)]="isDialogVisible"
+    [style]="{ width: '50vw' }"
+    header="Ajout/Edition produit">
+    <app-product-form
+        [product]="editedProduct()"
+        (save)="onSave($event)"
+        (cancel)="onCancel()"
+    />
+</p-dialog>
