@@ -25,9 +25,6 @@ export class ContactComponent {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      // Here you could handle the form submission, e.g., sending the data to a backend server
-
-
       Swal.fire({
         icon: 'success',
         title: 'Demande de contact envoyée avec succès',
