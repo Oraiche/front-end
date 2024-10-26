@@ -1,2 +1,4 @@
-# ALTEN SHOP FRONT
-Launch the front-end with `ng serve` or `npm start`.
+# Installer les dépendances:
+Lancer `npm install`.
+# Lancer l'application 
+Lancer `ng serve` or `npm start`.
